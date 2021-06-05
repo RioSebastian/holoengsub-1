@@ -6,18 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/bar_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="=?attr/colorPrimary"
+                android:miniHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:title="HOLOLENS"
+                app:titleTextColor="#fff"
+                tools:layout_editor_absoluteY="50dp" />
+
+            <TextView
+                android:id="@+id/text_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Back"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottonOf="parent"
+                app:layout_constraintEnd_toEndof="@id/toolbar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="43dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/text_toolbar"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+                tools:layout_editor_absoluteY="13dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="148dp"
+        android:src="@drawable/user_profile"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="154dp" />
 
     <Button
         android:id="@+id/update_password"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="15dp"
+        android:textColor="@color/white"
+        android:background="@drawable/button_color"
         android:text="Update Password"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/new_password" />
 
@@ -35,73 +91,35 @@
         app:layout_constraintTop_toBottomOf="@+id/update_password"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/change_password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="15dp"
-        android:text="Change Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <EditText
         android:id="@+id/new_password"
-        android:layout_width="0dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="15dp"
         android:ems="10"
         android:hint="Enter New Password"
         android:inputType="textPassword"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_password" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="0dp"
         android:layout_marginEnd="15dp"
-        android:text="Welcome"
+        android:text="Change Your Password"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/circleview" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/circleview"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="56dp"
-        app:cardBackgroundColor="#FFF9F9F9"
-        app:cardCornerRadius="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.cardview.widget.CardView>
-
-    <ImageView
-        android:id="@+id/user_profile"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"
-        android:src="@drawable/user_profile"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="57dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

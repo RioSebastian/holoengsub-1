@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
 
+    ActionBar actionBar;
     Button signout,change_password,update_password;;
     EditText new_password;
     TextView welcome;
@@ -37,6 +39,8 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        actionBar = getSupportActionBar();
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         welcome = findViewById(R.id.welcome);
         signout = findViewById(R.id.signout);
         change_password = (Button)findViewById(R.id.change_password);
@@ -56,7 +60,16 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
             welcome.setText("Welcome, "+name);
             user_profile.setImageURI(image_uri);
         }
+        @Override
+        public boolean onSupportNavigateUp() {
+            onBackPressed();
+            return true;
+        }
 
+        @Override
+                public void onBackPressed() {
+            super.onBackPressed();
+        }
 
         /*-auto logout on user's inactivity-*/
         timer = new CountDownTimer(300000,1000) { //set session timeout interval here
